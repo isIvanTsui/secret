@@ -1,0 +1,2 @@
+# secret
+study note
