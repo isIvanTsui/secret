@@ -1,2 +1,2 @@
 # secret
-study note
+study notes
