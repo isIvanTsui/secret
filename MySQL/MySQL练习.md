@@ -133,11 +133,7 @@ WHERE
 > 查询所有同学的学生编号、学生姓名、选课总数、所有课程的成绩总和
 
 ```sql
-SELECT
-	* 
-FROM
-	student s
-	JOIN ( SELECT sc.sid, count( sc.cid ), sum( sc.score ) FROM sc GROUP BY sc.sid ) sc ON s.sid = sc.sid;
+select s.*,count(sc.cid),sum(sc.score) from sc right join student s on sc.sid = s.sid group by sc.sid;
 ```
 
 > 查有成绩的学生信息
@@ -186,5 +182,28 @@ WHERE
 		count( sc.score ) >= ( SELECT count(*) FROM course ) 
 	AND s.sid = sc.sid 
 	);
+```
+
+> 查询至少有一门课与学号为" 01 "的同学所学相同的同学的信息
+
+```sql
+with temp as (select sc.cid from sc where sc.sid = '01')
+select distinct s.* from sc join student s on sc.sid = s.sid and exists(select temp.cid from temp where temp.cid = sc.cid);
+-- 或者
+select * from student 
+where student.sid in (
+    select sc.sid from sc 
+    where sc.cid in(
+        select sc.cid from sc 
+        where sc.sid = '01'
+    )
+);
+```
+
+<span style="color:red">查询各科成绩前三名的记录:</span> 
+
+```sql
+select * from (select *,rank() over(partition by sc.cid order by sc.score desc) as graderank from sc) A
+ where A.graderank <= 3;
 ```
 
