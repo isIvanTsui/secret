@@ -1,3 +1,5 @@
+# 用Redis实现Session共享
+
 ### 1.创建工程
 
 首先 创建一个 Spring Boot 工程，引入 Web、Spring Session 以及 Redis:
