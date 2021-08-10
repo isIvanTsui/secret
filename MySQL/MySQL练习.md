@@ -200,10 +200,108 @@ where student.sid in (
 );
 ```
 
-<span style="color:red">查询各科成绩前三名的记录:</span> 
+<span style="color:red">**查询各科成绩前三名的记录**</span> 
 
 ```sql
 select * from (select *,rank() over(partition by sc.cid order by sc.score desc) as graderank from sc) A
  where A.graderank <= 3;
 ```
 
+<span style="color:red">**查有成绩的学生信息**</span>
+
+```sql
+SELECT
+	s.sid,
+	s.sname,
+	count(*) AS 选课总数,
+	sum( sc.score ) AS 总成绩,
+	sum( CASE WHEN sc.cid = 01 THEN score ELSE NULL END ) AS score_01,
+	sum( CASE WHEN sc.cid = 02 THEN score ELSE NULL END ) AS score_02,
+	sum( CASE WHEN sc.cid = 03 THEN score ELSE NULL END ) AS score_03 
+FROM
+	sc
+	JOIN student s ON sc.sid = s.sid 
+GROUP BY
+	s.sid;
+```
+
+> 查询没有学全所有课程的同学的信息
+
+```sql
+SELECT
+	sc.*,
+sum(case when sc.cid = 01 then score else null end)	as score_01,
+sum(case when sc.cid = 02 then score else null end) as score_02,
+sum(case when sc.cid = 03 then score else null end) as score_03
+FROM
+	student s
+	JOIN sc ON s.sid = sc.sid 
+GROUP BY
+	s.sid 
+HAVING
+	count( sc.cid ) < ( SELECT count(*) FROM course );
+```
+
+> 查询和" 01 "号的同学学习的课程完全相同的其他同学的信息
+
+```sql
+select * from student s 
+where s.sid in(
+		select sc.sid from sc 
+		where sc.cid in (select sc.cid from sc where sc.sid = '01') and sc.sid <> '01' 
+		group by sc.sid 
+		having count(sc.cid) >= (select count(*) from sc where sc.sid = '01')
+)
+```
+
+<span style="color:red">**查询每个同学的平均成绩和有多少科不及格**</span>
+
+```sql
+SELECT
+	sc.sid,
+	avg( sc.score ) AS 平均成绩,
+	sum( CASE WHEN sc.score < 60 THEN 1 ELSE 0 END ) AS 不及格科目数 
+FROM
+	sc 
+GROUP BY
+	sc.sid;
+```
+
+> 查询各科成绩最高分、最低分和平均分，以如下形式显示：课程 ID，课程 name，最高分，最低分，平均分，及格率，中等率，优良率，优秀率(及格为>=60，中等为：70-80，优良为：80-90，优秀为：>=90）。
+> 要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列
+
+```sql
+SELECT
+	c.cid AS 课程号,
+	c.cname AS 课程名称,
+	count(*) AS 选修人数,
+	max( score ) AS 最高分,
+	min( score ) AS 最低分,
+	avg( score ) AS 平均分,
+	sum( CASE WHEN score >= 60 THEN 1 ELSE 0 END )/ count(*) AS 及格率,
+	sum( CASE WHEN score >= 70 AND score < 80 THEN 1 ELSE 0 END )/ count(*) AS 中等率,
+	sum( CASE WHEN score >= 80 AND score < 90 THEN 1 ELSE 0 END )/ count(*) AS 优良率,
+	sum( CASE WHEN score >= 90 THEN 1 ELSE 0 END )/ count(*) AS 优秀率 
+FROM
+	sc,
+	course c 
+WHERE
+	c.cid = sc.cid 
+GROUP BY
+	c.cid 
+ORDER BY
+	count(*) DESC,
+	c.cid ASC
+```
+
+> 查询每个同学的各科名次
+
+```sql
+select s.sid, s.sname, a.rank_score_01, b.rank_score_02, c.rank_score_03
+from student s 
+left join (select sc.sid, rank() over(partition by sc.cid order by sc.score) as rank_score_01 from sc where sc.cid = '01') a on s.sid = a.sid 
+left join (select sc.sid, rank() over(partition by sc.cid order by sc.score) as rank_score_02 from sc where sc.cid = '02') b on s.sid = b.sid 
+left join (select sc.sid, rank() over(partition by sc.cid order by sc.score) as rank_score_03 from sc where sc.cid = '03') c on c.sid = s.sid
+```
+
+17
