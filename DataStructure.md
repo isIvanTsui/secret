@@ -21,7 +21,7 @@
 
 **remove、element、offer 、poll、peek 其实是属于Queue接口。** 
 
-![image-20200808103515097](C:\Users\Administrator\Desktop\secret\img\image-20200808103515097.png)
+![1182892-20171122101159430-391005054](https://i.loli.net/2021/08/18/5AVnUv9qkN1dfK6.jpg)
 
 
 
