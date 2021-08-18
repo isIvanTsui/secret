@@ -8,7 +8,7 @@
 
 ### 创建数据库
 
-![](C:\Users\Administrator\Desktop\secret\img\create_database.png)
+![create_database](https://raw.githubusercontent.com/isIvanTsui/img/master/create_database.png)
 
 ### 查看所有的数据库
 
@@ -32,7 +32,7 @@ select database();
 
 ### 创建表
 
-![](C:\Users\Administrator\Desktop\secret\img\create_table.png)
+![create_table](https://raw.githubusercontent.com/isIvanTsui/img/master/create_table.png)
 
 查看某个数据库中的所有表
 SHOW TABLES;
@@ -70,7 +70,7 @@ ALTER TABLE 表名 character set 字符集;
 
 ### 向表中插入数据
 
-![](C:\Users\Administrator\Desktop\secret\img\insert_tablepng.png)
+![insert_tablepng](https://raw.githubusercontent.com/isIvanTsui/img/master/insert_tablepng.png)
 
 将表名2中的所有的列复制到表名1中
 INSERT INTO 表名1 SELECT * FROM 表名2;
@@ -79,11 +79,11 @@ INSERT INTO 表名1(列1, 列2) SELECT 列1, 列2 FROM student;
 
 ### 更新表中数据
 
-![](C:\Users\Administrator\Desktop\secret\img\update_table.png)
+![update_table](https://raw.githubusercontent.com/isIvanTsui/img/master/update_table.png)
 
 ### 删除表记录
 
-![](C:\Users\Administrator\Desktop\secret\img\delete_table.png)
+![delete_table](https://raw.githubusercontent.com/isIvanTsui/img/master/delete_table.png)
 
 
 
@@ -102,21 +102,21 @@ SELECT 列名1 + 列名2 FROM 表名;
 
 
 
-![](C:\Users\Administrator\Desktop\secret\img\operation_characterpng.png)
+![operation_characterpng](https://raw.githubusercontent.com/isIvanTsui/img/master/operation_characterpng.png)
 
-![](C:\Users\Administrator\Desktop\secret\img\logical_operator.png)
+![logical_operator](https://raw.githubusercontent.com/isIvanTsui/img/master/logical_operator.png)
 
-![](C:\Users\Administrator\Desktop\secret\img\keywords_in.png)
+![keywords_in](https://raw.githubusercontent.com/isIvanTsui/img/master/keywords_in.png)
 
-![](C:\Users\Administrator\Desktop\secret\img\tik1.png)
+![tik1](https://raw.githubusercontent.com/isIvanTsui/img/master/tik1.png)
 
 
 
 ### 表的约束
 
-![](C:\Users\Administrator\Desktop\secret\img\constraint.png)
+![constraint](https://raw.githubusercontent.com/isIvanTsui/img/master/constraint.png)
 
-![](C:\Users\Administrator\Desktop\secret\img\create_primarykey.png)
+![create_primarykey](https://raw.githubusercontent.com/isIvanTsui/img/master/create_primarykey.png)
 
 
 
@@ -133,7 +133,7 @@ alter table st4 auto_increment = 2000;
 
 
 
-![](C:\Users\Administrator\Desktop\secret\img\foreign_key.png)
+![foreign_key](https://raw.githubusercontent.com/isIvanTsui/img/master/foreign_key.png)
 
 create table employee(
 id int primary key auto_increment,
@@ -153,7 +153,7 @@ dep_id int, -- 外键对应主表的主键
 
 # 存储引擎
 
-![](C:\Users\Administrator\Desktop\secret\img\MySQL_Memory_Engine.jpeg)
+![MySQL_Memory_Engine](https://raw.githubusercontent.com/isIvanTsui/img/master/MySQL_Memory_Engine.jpeg)
 
 
 
@@ -161,9 +161,9 @@ dep_id int, -- 外键对应主表的主键
 
 **MySQL架构**
 
-![image-20210315112724639](C:\Users\Administrator\Desktop\secret\img\MySQL_architecture)
+![MySQL_architecture](https://raw.githubusercontent.com/isIvanTsui/img/master/MySQL_architecture.png)
 
-![img](C:\Users\Administrator\Desktop\secret\img\sql_invoke)
+![sql_invoke](https://raw.githubusercontent.com/isIvanTsui/img/master/sql_invoke.png)
 
 MySQL 整个查询执行过程，总的来说分为 6 个步骤 :
 
@@ -256,13 +256,13 @@ SELECT * FROM students st INNER JOIN score sc ON st.sid=sc.stu_id;
 
 举例说明：
 
-![](C:\Users\Administrator\Desktop\secret\img\students.png)
+![students](https://raw.githubusercontent.com/isIvanTsui/img/master/students.png)
 
 上表中，所有属性都完全依赖于学号，所以满足第二范式，但是“班主任性别”和“班主任年龄”直接依赖的是“班主任姓名”，
 
 而不是主键“学号”，所以需做如下调整：
 
-![](C:\Users\Administrator\Desktop\secret\img\students2.png) ![img](https://images2018.cnblogs.com/blog/1218459/201809/1218459-20180909211602202-1069383439.png)
+![students2](https://raw.githubusercontent.com/isIvanTsui/img/master/students2.png) ![9383439](https://raw.githubusercontent.com/isIvanTsui/img/master/9383439.png)
 
 这样以来，就满足了第三范式的要求。
 

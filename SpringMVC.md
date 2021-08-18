@@ -4,7 +4,7 @@ Spring MVC是一个基于Java的实现了MVC设计模式的请求驱动类型的
 
 ### 2.SpringMVC的执行流程
 
-![](C:\Users\Administrator\Desktop\secret\img\SpringMVC_excute.png)
+![SpringMVC_excute](https://raw.githubusercontent.com/isIvanTsui/img/master/SpringMVC_excute.png)
 
 **第一步：用户发送请求被前端控制器(DispatcherServlet)接收**
 

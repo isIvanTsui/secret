@@ -2,7 +2,7 @@
 
 ## JVM总结构图
 
-![](C:\Users\Administrator\Desktop\secret\img\jvmStructure.png)
+![jvmStructure](https://raw.githubusercontent.com/isIvanTsui/img/master/jvmStructure.png)
 
 > 虚拟机栈、程序计数器、本地方法栈都是线程私有的，方法区、堆是线程共享的
 
@@ -12,7 +12,7 @@
 
 <span style="color:red">装载 --> 链接(验证、准备、解析) --> 初始化 --> 使用 --> 卸载</span>
 
-<img src="C:\Users\Administrator\Desktop\secret\img\classProcess" alt="image-20210606195759399" style="zoom: 150%;" />
+<img src="https://raw.githubusercontent.com/isIvanTsui/img/master/classProcess.png" alt="classProcess" style="zoom:150%;" />
 
 1. **加载：**
 
@@ -89,7 +89,7 @@
 
 ## 类加载器
 
-![](C:\Users\Administrator\Desktop\secret\img\classLoad.png)
+![classLoad](https://raw.githubusercontent.com/isIvanTsui/img/master/classLoad.png)
 
 ```java
 public class Car {
@@ -125,11 +125,11 @@ public class Car {
 
 ### 双亲委派机制（安全）
 
-![](C:\Users\Administrator\Desktop\secret\img\parent_appointed.jpg)
+![parent_appointed](https://raw.githubusercontent.com/isIvanTsui/img/master/parent_appointed.jpg)
 
 APP-->Ext-->BootStrap
 
-![](C:\Users\Administrator\Desktop\secret\img\args.png)
+![args](d:\Users\cuiyingfan\Desktop\secret\img\args.png)
 
 ## 程序计数器 PC Register
 
@@ -140,7 +140,7 @@ APP-->Ext-->BootStrap
 
 ## 虚拟机栈 JVM Stacks
 
-![](C:\Users\Administrator\Desktop\secret\img\stack.jpg)
+![stack](https://raw.githubusercontent.com/isIvanTsui/img/master/stack.jpg)
 
 - 定义：线程运行时所需要的内存称为虚拟机栈
 - 每个栈由多个栈帧组成，对应着每次方法调用时所占的内存
@@ -214,11 +214,11 @@ Student s = new Student();
 
 * 作用：为本地方法运行提供内存空间
 
-  ![](C:\Users\Administrator\Desktop\secret\img\native.png)
+  ![native](https://raw.githubusercontent.com/isIvanTsui/img/master/native.png)
 
 ## 堆 Heap
 
-![](C:\Users\Administrator\Desktop\secret\img\heap.png)
+![heap](https://raw.githubusercontent.com/isIvanTsui/img/master/heap.png)
 
 * 通过new关键字，创建对象都会使用堆内存
 
@@ -232,11 +232,11 @@ Student s = new Student();
 
 - 句柄
 
-  ![](C:\Users\Administrator\Desktop\secret\img\handle.png)
+  ![handle](https://raw.githubusercontent.com/isIvanTsui/img/master/handle.png)
 
 - 直接引用
 
-  ![](C:\Users\Administrator\Desktop\secret\img\direct.png)
+  ![direct](https://raw.githubusercontent.com/isIvanTsui/img/master/direct.png)
 
 ## 方法区 Method Area
 
@@ -248,11 +248,11 @@ Student s = new Student();
 
   符号引用包括：1、类的权限定名；2、字段名和属性；3、方法名和属性。
 
-  ![](C:\Users\Administrator\Desktop\secret\img\methodAreaDetail.png)
+  ![methodAreaDetail](https://raw.githubusercontent.com/isIvanTsui/img/master/methodAreaDetail.png)
 
 * 方法区在jdk1.6和1.7以后的区别
 
-  ![](C:\Users\Administrator\Desktop\secret\img\methodArea.png)
+  ![methodArea](https://raw.githubusercontent.com/isIvanTsui/img/master/methodArea.png)
 
   >  Method Area都只是一种概念，Method Area在1.6以前是在jvm中，而1.7以后是在本地内存（操作系统内存）中。
 >
@@ -361,15 +361,15 @@ StringBuilder是线程不安全的，但是它只是个**局部变量**，局部
 
 **复制**：复制算法采用的方式为从根集合进行扫描，将存活的对象移动到一块空闲的区域，如图所示：
 
-![image.png](C:\Users\Administrator\Desktop\secret\img\copyAlgorithm)
+![copyAlgorithm](https://raw.githubusercontent.com/isIvanTsui/img/master/copyAlgorithm.png)
 
 当存活的对象较少时，复制算法会比较高效（新生代的Eden区就是采用这种算法），其带来的成本是需要一块额外的空闲空间和对象的移动。
 
  **标记-清除**：该算法采用的方式是从跟集合开始扫描，对存活的对象进行标记，标记完毕后，再扫描整个空间中未被标记的对象，并进行清除。标记和清除的过程如下：
 
-![image.png](C:\Users\Administrator\Desktop\secret\img\markAlgorithm)
+![markAlgorithm](https://raw.githubusercontent.com/isIvanTsui/img/master/markAlgorithm.png)
 
 **标记-压缩**：该算法与标记-清除算法类似，都是先对存活的对象进行标记，但是在清除后会把活的对象向左端空闲空间移动，然后再更新其引用对象的指针，如下图所示：
 
-![image.png](C:\Users\Administrator\Desktop\secret\img\compressAlgorithm)
+![compressAlgorithm](https://raw.githubusercontent.com/isIvanTsui/img/master/compressAlgorithm.png)
 

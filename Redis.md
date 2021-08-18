@@ -1,1 +1,2 @@
-![](C:\Users\Administrator\Desktop\secret\img\redis.jpg)
+![redis](https://raw.githubusercontent.com/isIvanTsui/img/master/redis.jpg)
+

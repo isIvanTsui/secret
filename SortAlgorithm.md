@@ -13,15 +13,15 @@
 - **时间复杂度：** 一个算法执行所耗费的时间。
 - **空间复杂度**：运行完一个程序所需内存的大小。
 
-![](C:\Users\Administrator\Desktop\secret\img\849589-20171015233043168-1867817869.png)
+![3043168-1867817869](https://raw.githubusercontent.com/isIvanTsui/img/master/3043168-1867817869.png)
 
-![](C:\Users\Administrator\Desktop\secret\img\849589-20171015233220637-1055088118.png)
+![1055088118](https://raw.githubusercontent.com/isIvanTsui/img/master/1055088118.png)
 
 
 
 # BubbleSort
 
-![](C:\Users\Administrator\Desktop\secret\img\849589-20171015223238449-2146169197.gif)
+![849589-20171015223238449-2146169197](https://raw.githubusercontent.com/isIvanTsui/img/master/849589-20171015223238449-2146169197.gif)
 
 ```java
 public class BubbleSort {
@@ -44,7 +44,7 @@ public class BubbleSort {
 
 # SelectionSort
 
-![](C:\Users\Administrator\Desktop\secret\img\849589-20171015224719590-1433219824.gif)
+![1433219824](https://raw.githubusercontent.com/isIvanTsui/img/master/1433219824.gif)
 
 ```java
 public class SelectionSort {
@@ -70,7 +70,7 @@ public class SelectionSort {
 
 # InsertionSort
 
-![](C:\Users\Administrator\Desktop\secret\img\849589-20171015225645277-1151100000.gif)
+![1151100000](https://raw.githubusercontent.com/isIvanTsui/img/master/1151100000.gif)
 
 ```java
 public class BubbleSort {
@@ -93,7 +93,7 @@ public class BubbleSort {
 
 # ShellSort
 
-![](C:\Users\Administrator\Desktop\secret\img\1192699-20180319094116040-1638766271.png)
+![1638766271](https://raw.githubusercontent.com/isIvanTsui/img/master/1638766271.png)
 
 ```java
 public class ShellSort {
@@ -126,7 +126,7 @@ public class ShellSort {
 
 # QuickSort
 
-![](C:\Users\Administrator\Desktop\secret\img\quick_sort.gif)
+![quick_sort](https://raw.githubusercontent.com/isIvanTsui/img/master/quick_sort.gif)
 
 ```java
 public class QuickSort {
@@ -180,7 +180,7 @@ public class QuickSort {
 - 对这两个子序列分别采用归并排序；
 - 将两个排序好的子序列合并成一个最终的排序序列。
 
-![](C:\Users\Administrator\Desktop\secret\img\merge_sort.gif)
+![merge_sort](https://raw.githubusercontent.com/isIvanTsui/img/master/merge_sort.gif)
 
 ```java
 public class MergeSort {

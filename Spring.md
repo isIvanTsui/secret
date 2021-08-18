@@ -12,7 +12,7 @@ Spring是一个轻量级的IOC和AOP容器框架。是为Java应用程序提供�
 
 下图对应的是Spring 4.x的版本，5.x版本中Web模块的Portlet组件已经被废弃
 
-![](C:\Users\Administrator\Desktop\secret\img\spring.png)
+![spring](https://raw.githubusercontent.com/isIvanTsui/img/master/spring.png)
 
 
 
@@ -75,7 +75,7 @@ IoC让相互协作的组件保持松散的耦合，而AOP编程允许你把遍�
 
 **几个概念的关系图可以参考下图：**
 
-![](C:\Users\Administrator\Desktop\secret\img\aspect.png)
+![aspect](https://raw.githubusercontent.com/isIvanTsui/img/master/aspect.png)
 
 **AOP 有哪些实现方式？**
 
@@ -96,7 +96,7 @@ IoC让相互协作的组件保持松散的耦合，而AOP编程允许你把遍�
 4. 返回后通知（AfterReturning Advice）：在连接点正常完成后执行的通知（如果连接点抛出异常，则不执行）
 5. 抛出异常后通知（AfterThrowing advice）：在方法抛出异常退出时执行的通知
 
-![](C:\Users\Administrator\Desktop\secret\img\inform.png)
+![inform](https://raw.githubusercontent.com/isIvanTsui/img/master/inform.png)
 
 >同一个Aspect，不同advice的执行顺序：
 >
@@ -178,7 +178,7 @@ bean销毁:销毁有两种方式
 
 但具体来说，Spring Bean的生命周期包含下图的流程：
 
-![](C:\Users\Administrator\Desktop\secret\img\bean.png)
+![bean](https://raw.githubusercontent.com/isIvanTsui/img/master/bean.png)
 
 1. 实例化Bean：
 
@@ -530,7 +530,7 @@ WebApplicationContext 是 ApplicationContext 的扩展。它具有 Web 应用程
 
 <span style="color:green">**隔离级别会产生的问题**</span>
 
-![](C:\Users\Administrator\Desktop\secret\img\isolation_question.png)
+![isolation_question](https://raw.githubusercontent.com/isIvanTsui/img/master/isolation_question.png)
 
 <span style="color:green">**Spring隔离级别**</span>
 
@@ -544,7 +544,7 @@ WebApplicationContext 是 ApplicationContext 的扩展。它具有 Web 应用程
 
 <span style="color:green">**传播行为(七种)**</span>
 
-![](C:\Users\Administrator\Desktop\secret\img\transmission.png)
+![transmission](https://raw.githubusercontent.com/isIvanTsui/img/master/transmission.png)
 
 
 

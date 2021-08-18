@@ -1,6 +1,6 @@
 # I/O
 
-![](C:\Users\Administrator\Desktop\secret\img\IOstream.png)
+![IOstream](https://raw.githubusercontent.com/isIvanTsui/img/master/IOstream.png)
 
 - 将字符串写入和写出
 
@@ -252,9 +252,9 @@ public class TestThread {
 
 死亡：run()执行完、Error或Exception
 
-![](C:\Users\Administrator\Desktop\secret\img\1223046-20190722214114154-276488899.png)
+![1223046-20190722214114154-276488899](https://raw.githubusercontent.com/isIvanTsui/img/master/1223046-20190722214114154-276488899.png)
 
-![](C:\Users\Administrator\Desktop\secret\img\下载.png)
+![thread](https://raw.githubusercontent.com/isIvanTsui/img/master/thread.png)
 
 
 
@@ -338,7 +338,7 @@ public class SynchronizedTest implements Runnable {
 
 ## Threadlocal
 
-![img](C:\Users\Administrator\Desktop\secret\img\Threadlocal)
+![Threadlocal](https://raw.githubusercontent.com/isIvanTsui/img/master/Threadlocal.png)
 
 ThreadLocal内部定义了一个静态ThreadLocalMap类，ThreadLocalMap内部又定义了一个Entry类。ThreadLocalMap本身就是一个Map，其中Map的key是ThreadLocal对象，而value则是ThreadLocal中存储的对象。除此之外，Map的key继承了WeakRefence，也就是说ThreadLocalMap的key是一个弱依赖，如果GC Root不可达的情况下，在下一次Java GC时会被回收。
 

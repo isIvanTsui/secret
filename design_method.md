@@ -246,7 +246,7 @@ public class FactoryTest {
 
 ### 类适配器模式
 
-![](C:\Users\Administrator\Desktop\secret\img\adapter.png)
+![adapter](https://raw.githubusercontent.com/isIvanTsui/img/master/adapter.png)
 
 ```java
 public interface Target {
@@ -288,7 +288,7 @@ public class Main {
 
 ### 对象适配器模式
 
-![](C:\Users\Administrator\Desktop\secret\img\object_adapter.png)
+![object_adapter](https://raw.githubusercontent.com/isIvanTsui/img/master/object_adapter.png)
 
 ```java
 public class Adapter implements Target {
@@ -330,7 +330,7 @@ public class Main {
 
 ### 静态代理模式
 
-![](C:\Users\Administrator\Desktop\secret\img\proxy_mode.png)
+![proxy_mode](https://raw.githubusercontent.com/isIvanTsui/img/master/proxy_mode.png)
 
 ```java
 public interface IUserDao {

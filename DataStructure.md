@@ -25,11 +25,11 @@
 
 
 
-![](C:\Users\Administrator\Desktop\secret\img\1182892-20171122101159430-391005054.jpg)
+![sdf](https://raw.githubusercontent.com/isIvanTsui/img/master/sdf.jpg)
 
-![](C:\Users\Administrator\Desktop\secret\img\Snipaste_2020-08-17_14-45-58.png)
+![Snipaste_2020-08-17_14-45-58](https://raw.githubusercontent.com/isIvanTsui/img/master/Snipaste_2020-08-17_14-45-58.png)
 
-![](C:\Users\Administrator\Desktop\secret\img\Snipaste_2020-08-17_14-46-14.png)
+![Snipaste_2020-08-17_14-46-14](https://raw.githubusercontent.com/isIvanTsui/img/master/Snipaste_2020-08-17_14-46-14.png)
 
 # 二叉排序树(BST)、二叉搜索树
 
@@ -55,7 +55,7 @@
 
 ⑩森林：由m（m≥0）棵互不相交的树构成一片森林。如果把一棵非空的树的根结点删除，则该树就变成了一片森林，森林中的树由原来根结点的各棵子树构成 [5] 。
 
-![](C:\Users\Administrator\Desktop\secret\img\Snipaste_2020-08-13_15-11-55.png)
+![Snipaste_2020-08-13_15-11-55](https://raw.githubusercontent.com/isIvanTsui/img/master/Snipaste_2020-08-13_15-11-55.png)
 
 ```java
 public class TreeNode {

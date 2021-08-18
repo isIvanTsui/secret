@@ -1,6 +1,6 @@
 # Shiro简介
 
-![](C:\Users\Administrator\Desktop\secret\img\shiro_sumarry.png)
+![shiro_sumarry](https://raw.githubusercontent.com/isIvanTsui/img/master/shiro_sumarry.png)
 
 **Authentication**：身份认证/登录，验证用户是不是拥有相应的身份,例如账号密码登陆；
 
@@ -24,7 +24,7 @@
 
 # Shiro架构
 
-![](C:\Users\Administrator\Desktop\secret\img\shiro_structure.png)
+![shiro_structure](https://raw.githubusercontent.com/isIvanTsui/img/master/shiro_structure.png)
 
 **Subject**：主体，应用代码直接交互的对象是 Subject，也就是说 Shiro 的对外 API 核心就是 Subject , 代表了当前“用户”，这个用户不一定是一个具体的人，与当前应用交互的任何东西都是Subject，如网络爬虫，机器人等；即一个抽象概念；所有Subject都绑定到SecurityManager，与Subject的所有交互都会委托给SecurityManager；可以把Subject认为是一个门面；SecurityManager才是实际的执行者；
 
@@ -32,7 +32,7 @@
 
 **Realm**：域，Shiro从从Realm获取安全数据（如用户、角色、权限），就是说SecurityManager要验证用户身份，那么它需要从Realm获取相应的用户进行比较以确定用户身份是否合法；也需要从Realm得到用户相应的角色/权限进行验证用户是否能进行操作；可以把Realm看成DataSource，即安全数据源。
 
-![](C:\Users\Administrator\Desktop\secret\img\shiro_structure_in.png)
+![shiro_structure_in](https://raw.githubusercontent.com/isIvanTsui/img/master/shiro_structure_in.png)
 
 **Subject**：主体，可以看到主体可以是任何可以与应用交互的“用户”；
 

@@ -15,11 +15,11 @@ JDK1.8中HashMap的新特性：
 
 ### put元素
 
-![](C:\Users\Administrator\Desktop\secret\img\HashMap_put.png)
+![HashMap_put](https://raw.githubusercontent.com/isIvanTsui/img/master/HashMap_put.png)
 
 **hash方法：**
 
-![](C:\Users\Administrator\Desktop\secret\img\hash.png)
+![hash](https://raw.githubusercontent.com/isIvanTsui/img/master/hash.png)
 
 **map.put()流程：**
 
@@ -275,7 +275,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
 降低hash冲突：HashMap的数组长度一定保持2的次幂，比如16的二进制表示为 10000，那么length-1就是15，二进制为01111，同理扩容后的数组长度为32，二进制表示为100000，length-1为31，二进制表示为011111。从下图可以我们也能看到这样会保证低位全为1，而扩容后只有一位差异，也就是多出了最左位的1，这样在通过 h&(length-1)的时候，只要h对应的最左边的那一个差异位为0，就能保证得到的新的数组索引和老数组索引一致(大大减少了之前已经散列良好的老数组的数据位置重新调换)，个人理解。
 
-![](C:\Users\Administrator\Desktop\secret\img\hashClash.png)
+![hashClash](https://raw.githubusercontent.com/isIvanTsui/img/master/hashClash.png)
 
 还有，数组长度保持2的次幂，length-1的低位都为1，会使得获得的数组索引index更加均匀
 

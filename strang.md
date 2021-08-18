@@ -2,7 +2,7 @@
 
 继承、封装、多态、抽象
 
-![Snipaste_2020-08-12_15-03-32](C:\Users\Administrator\Desktop\secret\img\Snipaste_2020-08-12_15-03-32.png)
+![Snipaste_2020-08-12_15-03-32](https://raw.githubusercontent.com/isIvanTsui/img/master/Snipaste_2020-08-12_15-03-32.png)
 
 ### 对象的克隆：
 
@@ -39,7 +39,7 @@ Person p2 = (Person) p1.clone();  //clone()属于浅拷贝,要想深拷贝对象
 
 ### Java的基本数据类型
 
-![](C:\Users\Administrator\Desktop\secret\img\Snipaste_2020-08-15_14-47-24.png)
+![Snipaste_2020-08-15_14-47-24](https://raw.githubusercontent.com/isIvanTsui/img/master/Snipaste_2020-08-15_14-47-24.png)
 
 
 
@@ -51,7 +51,7 @@ short s1 = 1;  s1 += 1; 是对的，因为 s1 += 1 与 s1 = (short)(s1 + 1)等�
 
 
 
-![](C:\Users\Administrator\Desktop\secret\img\Snipaste_2020-08-15_14-57-21.png)
+![Snipaste_2020-08-15_14-57-21](https://raw.githubusercontent.com/isIvanTsui/img/master/Snipaste_2020-08-15_14-57-21.png)
 
 如果整型字面量在-128~127之间，那么不会new新的Integer对象，而是直接引用常量池中的Integer对象。所有上面的试题f1 == f2 为true, f3 == f4为false。
 
@@ -105,7 +105,7 @@ HashMap对象的key、value均可以为null，HashTable的key、value均不可�
 
 ### 反射
 
-<img src="C:\Users\Administrator\Desktop\secret\img\Snipaste_2020-08-18_14-19-43.png" style="zoom:150%;" />
+![Snipaste_2020-08-18_14-19-43](https://raw.githubusercontent.com/isIvanTsui/img/master/Snipaste_2020-08-18_14-19-43.png)
 
 
 
@@ -147,11 +147,11 @@ System.out.println("平均值:" + statis.getAverage());
 
  一个HTTP请求报文由请求行（request line）、请求头部（headers）、空行（blank line）和请求数据（request body）4个部分组成。
 
-![](C:\Users\Administrator\Desktop\secret\img\http.png)
+![http](https://raw.githubusercontent.com/isIvanTsui/img/master/http.png)
 
-![](C:\Users\Administrator\Desktop\secret\img\Snipaste_2020-08-18_15-29-22.png)
+![Snipaste_2020-08-18_15-29-22](https://raw.githubusercontent.com/isIvanTsui/img/master/Snipaste_2020-08-18_15-29-22.png)
 
-![](C:\Users\Administrator\Desktop\secret\img\Snipaste_2020-08-18_15-29-32.png)
+![Snipaste_2020-08-18_15-29-32](https://raw.githubusercontent.com/isIvanTsui/img/master/Snipaste_2020-08-18_15-29-32.png)
 
 1B=8bit：一个字节占8位
 
@@ -202,7 +202,7 @@ System.out.println("平均值:" + statis.getAverage());
 
 
 
-![](C:\Users\Administrator\Desktop\secret\img\Snipaste_2020-08-18_15-39-12.png)
+![Snipaste_2020-08-18_15-39-12](https://raw.githubusercontent.com/isIvanTsui/img/master/Snipaste_2020-08-18_15-39-12.png)
 
 
 
@@ -232,11 +232,11 @@ System.out.println("平均值:" + statis.getAverage());
 
 ### jsp四大域和九大内置对象对象：
 
-![](C:\Users\Administrator\Desktop\secret\img\jsp49.png)
+![jsp49](https://raw.githubusercontent.com/isIvanTsui/img/master/jsp49.png)
 
 可以这么记：
 
-![](C:\Users\Administrator\Desktop\secret\img\jsp4.jpg)
+![jsp4](https://raw.githubusercontent.com/isIvanTsui/img/master/jsp4.jpg)
 
 9大内置对象对应的类：
 
@@ -309,7 +309,7 @@ xml常用解析器：DOM、SAX
 
 ### 异常
 
-![](C:\Users\Administrator\Desktop\secret\img\exception.png)
+![exception](https://raw.githubusercontent.com/isIvanTsui/img/master/exception.png)
 
 常见的Runtime Exception：
 
@@ -343,11 +343,11 @@ SQLException：操作数据库异常类
 
 1. new ThreadPool()构造函数的方式
 
-   ![](C:\Users\Administrator\Desktop\secret\img\ThreadPoolExcutor.png)
+   ![ThreadPoolExcutor](https://raw.githubusercontent.com/isIvanTsui/img/master/ThreadPoolExcutor.png)
 
 2. Executors工具类
 
-   ![](C:\Users\Administrator\Desktop\secret\img\Executors.png)
+   ![Executors](https://raw.githubusercontent.com/isIvanTsui/img/master/Executors.png)
 
 ### 类什么时候被初始化
 
@@ -503,7 +503,7 @@ public void testSQLinjection2() {
 
 ### HTTP三次握手
 
-![image-20210304162041059](C:\Users\Administrator\Desktop\secret\img\sayGoodbey.png)
+![sayGoodbey](https://raw.githubusercontent.com/isIvanTsui/img/master/sayGoodbey.png)
 
 **为什么要三次握手：**
 
@@ -516,7 +516,7 @@ public void testSQLinjection2() {
 
 ### JDK和JRE的区别
 
-![](C:\Users\Administrator\Desktop\secret\img\jdk&jre.jpg)
+![jdk&jre](https://raw.githubusercontent.com/isIvanTsui/img/master/jdk%2526jre.jpg)
 
 从图中可以看出JDK包含JRE包含JVM...
 
