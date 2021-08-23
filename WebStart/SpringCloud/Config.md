@@ -23,6 +23,10 @@ test:
 
 ## 创建config-server
 
+**项目整体结构：**
+
+![image-20210823171956971](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20210823171956971.png)
+
 1. 创建
 
    ![image-20210823163644394](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20210823163644394.png)
