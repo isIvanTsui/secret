@@ -6,7 +6,7 @@ Github上面新建一个用于存储Spring配置文件的仓库
 
 ![image-20210823160047513](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20210823160047513.png)
 
-再在SpringCloudConfig仓库里创建文件夹config，文件夹config里创建**config-client-dev.yml**
+再在SpringCloudConfig仓库里创建文件夹user，文件夹user里创建**user-dev.yml**
 
 ```yaml
 server:
@@ -17,9 +17,9 @@ test:
 
 具体如下：
 
-![image-20210823163412128](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20210823163412128.png)
+![image-20210824115236011](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20210824115236011.png)
 
-> config-client-dev.yml为待会儿将要创建的config-client模块的配置文件
+> user-dev.yml为待会儿将要创建的config-client模块的配置文件
 
 ## 创建config-server
 
@@ -45,32 +45,10 @@ test:
            git:
              uri: https://github.com/isIvanTsui/SpringCloudConfig.git  #配置文件所在仓库
              default-label: main  #主分支
-             search-paths: config  #搜寻（即配置文件将在SpringCloudConfig仓库的config文件夹下去搜索）
+             search-paths: /**  #搜寻（即配置文件将在SpringCloudConfig仓库的所有文件夹下去搜索）
              username:  #公开仓库不需要配置用户名密码
              password:
-   server:
-     port: 10086
-   ```
-
-   若项目文件比较多，例如下面这样进行文件夹划分后，每个项目的配置文件放在各自的文件夹下：
-
-   ![image-20210824100553553](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20210824100553553.png)
-
-   此时需要修改search-paths为/**：
-
-   ```yaml
-   spring:
-     application:
-       name: config-server
-     cloud:
-       config:
-         server:
-           git:
-             uri: https://github.com/isIvanTsui/SpringCloudConfig.git  #配置文件所在仓库
-             default-label: main  #主分支
-             search-paths: /** # 指定搜索根路径下的所有目录，若有多个路径使用逗号隔开
-             username:  #公开仓库不需要配置用户名密码
-             password:
+             basedir: D:\basedir
    server:
      port: 10086
    ```
@@ -93,7 +71,7 @@ test:
 
    
 
-4. 启动项目访问：http://localhost:10086/config-client-dev.yml
+4. 启动项目访问：http://localhost:10086/user-dev.yml
 
    ![image-20210823164330985](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20210823164330985.png)
 
@@ -134,7 +112,7 @@ test:
          name: user # 配置文件名称 列如user-dev.yml 名称就是user
    ```
 
-   注意此时config-client的bootstrap配置文件中没有配置自身端口以及其他信息，而是配置了config-server所在ip，是因为我们刚才在config-server模块中已经能在GitHub远程仓库上获取到config-client-dev.yml配置文件信息了，此时我们只需要让config-client去config-server里拉取它获取到的config-client-dev.yml来作为config-client自己的其他配置
+   注意此时config-client的bootstrap配置文件中没有配置自身端口以及其他信息，而是配置了config-server所在ip，是因为我们刚才在config-server模块中已经能在GitHub远程仓库上获取到user-dev.yml配置文件信息了，此时我们只需要让config-client去config-server里拉取它获取到的user-dev.yml来作为config-client自己的其他配置
 
 3. 写一个controller方便待会儿观察
 
@@ -159,9 +137,9 @@ test:
 
 4. 启动项目
 
-   查看控制台
+   启动项目，查看控制台
 
-   ![image-20210823171010015](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20210823171010015.png)
+   ![image-20210824115851568](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20210824115851568.png)
 
    > config-client去config-server里拉取到了配置文件信息，添加了port  10087配置，而config-server是从远端git仓库拉取配置信息，如图：
 
