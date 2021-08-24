@@ -52,6 +52,29 @@ test:
      port: 10086
    ```
 
+   若项目文件比较多，例如下面这样进行文件夹划分后，每个项目的配置文件放在各自的文件夹下：
+
+   ![image-20210824100553553](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20210824100553553.png)
+
+   此时需要修改search-paths为/**：
+
+   ```yaml
+   spring:
+     application:
+       name: config-server
+     cloud:
+       config:
+         server:
+           git:
+             uri: https://github.com/isIvanTsui/SpringCloudConfig.git  #配置文件所在仓库
+             default-label: main  #主分支
+             search-paths: /** # 指定搜索根路径下的所有目录，若有多个路径使用逗号隔开
+             username:  #公开仓库不需要配置用户名密码
+             password:
+   server:
+     port: 10086
+   ```
+
    
 
 3. 启动类上开启@EnableConfigServer注解
@@ -103,12 +126,12 @@ test:
    spring:
      application:
        name: config-client
-       #未配置自身端口以及其他信息
      cloud:
        config:
-         uri: http://localhost:10086/  #配置config-server所在ip和端口
-         profile: dev  #配置生成环境标识
-         label: main  #配置仓库分支
+         uri: http://localhost:10086/
+         profile: dev # 环境（读取后缀）
+         label: main # 分支名称
+         name: user # 配置文件名称 列如user-dev.yml 名称就是user
    ```
 
    注意此时config-client的bootstrap配置文件中没有配置自身端口以及其他信息，而是配置了config-server所在ip，是因为我们刚才在config-server模块中已经能在GitHub远程仓库上获取到config-client-dev.yml配置文件信息了，此时我们只需要让config-client去config-server里拉取它获取到的config-client-dev.yml来作为config-client自己的其他配置
@@ -140,11 +163,15 @@ test:
 
    ![image-20210823171010015](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20210823171010015.png)
 
-   > config-client去config-server里拉取到了配置文件信息，添加了port  10087配置
+   > config-client去config-server里拉取到了配置文件信息，添加了port  10087配置，而config-server是从远端git仓库拉取配置信息，如图：
+
+   ![a2021_8_24](https://raw.githubusercontent.com/isIvanTsui/img/master/a2021_8_24.png)
 
    测试一下刚才写的controller
 
    http://localhost:10087/hh
-
+   
    ![image-20210823171125068](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20210823171125068.png)
+   
+   
 
