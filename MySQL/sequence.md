@@ -23,8 +23,8 @@
    ```
 
    > 新增后数据如下：
-   >
-   > ![image-20210705162509655](d:\Users\cuiyingfan\Desktop\secret\MySQL\img\inesrt_sequence_value1)
+   
+   ![inesrt_sequence_value1](https://i.loli.net/2021/08/13/hkpbR1tU3JxmzAG.png)
 
 3. 创建currval函数用于获取序列当前值(v_seq_name 参数值 代表序列名称)
 
@@ -92,6 +92,6 @@
    > 此时未插入num1和num2字段的值，但触发器会被触发且执行定义的函数为num1和num2填充值
    >
    > 结果如下：
-   >
-   > ![image-20210705163606526](d:\Users\cuiyingfan\Desktop\secret\MySQL\img\inesrt_sequence_value2)
+   
+   ![inesrt_sequence_value2](https://i.loli.net/2021/08/13/yIY4xRLFUBfVahl.png)
 

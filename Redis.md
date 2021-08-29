@@ -1,1 +1,0 @@
-![](C:\Users\Administrator\Desktop\secret\img\redis.jpg)

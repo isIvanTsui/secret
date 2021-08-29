@@ -4,7 +4,7 @@
 
 首先 创建一个 Spring Boot 工程，引入 Web、Spring Session 以及 Redis:
 
-![](C:\Users\Administrator\Desktop\secret\img\sessionRedis.webp)
+![sessionRedis](https://raw.githubusercontent.com/isIvanTsui/img/master/sessionRedis.png)
 
 **创建后依赖如下:**
 
