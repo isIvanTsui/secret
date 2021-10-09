@@ -1,6 +1,6 @@
-# 用Redis实现Session共享
+<h1 align="center">用Redis实现Session共享</h1>
 
-### 1.创建工程
+## 创建工程
 
 首先 创建一个 Spring Boot 工程，引入 Web、Spring Session 以及 Redis:
 
@@ -23,7 +23,7 @@
 </dependency>
 ```
 
-### 2.配置Redis：**application.yml配置如下**
+## 配置Redis：**application.yml配置如下**
 
 ```yaml
 redis:
@@ -34,7 +34,7 @@ redis:
   # redis端口（默认为6379）
   port: 6379
   # redis访问密码（默认为空）
-  password: pwd123
+  password: 
   # redis连接超时时间（单位毫秒）
   timeout: 0
   # redis连接池配置
@@ -49,7 +49,23 @@ redis:
     max-wait: -1
 ```
 
-### 3.使用：**Controller如下**
+## 在启动类上添加`@EnableRedisHttpSession`注解
+
+```java
+@SpringBootApplication
+@EnableRedisHttpSession
+public class SpringSessionApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringSessionApplication.class, args);
+    }
+
+}
+```
+
+
+
+## 编写`Controller`测试
 
 ```java
 import org.springframework.web.bind.annotation.GetMapping;
@@ -79,3 +95,18 @@ public class HelloController {
 }
 ```
 
+测试：
+
+访问http://localhost:8080/set
+
+![image-20211009152357991](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20211009152357991.png)
+
+打开`RDM`查看`Redis`中的数据：
+
+![image-20211009152637970](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20211009152637970.png)
+
+> 发现`Session`已经存入`Redis`了，默认存在`db0`
+
+访问http://localhost:8080/get，发现已经能从`Redis`中获取`Session`了
+
+![image-20211009152905832](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20211009152905832.png)
