@@ -38,7 +38,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-@WebFilter(filterName = "filter2", urlPatterns = "*")
+@WebFilter(urlPatterns = "*", filterName = "filter2")
 @Order(2) //执行顺序，数字越小越先执行
 public class MyFilter2 implements Filter {
     @Override
