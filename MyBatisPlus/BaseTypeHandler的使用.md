@@ -35,13 +35,17 @@ public class IvanUser {
 }
 ```
 
-> 即想得到`List`类型的职位`id`集合`jids`
+> 即想得到`List`类型的职位`id`集合`jids`；
+>
+> 以往我们需要在往数据库中存或者在数据库取出来时转换类型或者对值做某些处理，这样十分不方便，在这里我们就可以继承`BaseTypeHandler<T>`，自己实现各种转换
 
 -----
 
 
 
-## 一、自定义`handler`继承`BaseTypeHandler`
+## 一、自定义`handler`继承`BaseTypeHandler<T>`
+
+
 
 ```java
 @SuppressWarnings("unchecked")
