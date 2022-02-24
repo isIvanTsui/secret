@@ -237,6 +237,10 @@ Person [name=Ivan, address=成都市, phone=1552545654]
 
 > 第7步和第8步循环了很多次
 
+**对应关系是这样的：**
+
+![SpringBean2](https://raw.githubusercontent.com/isIvanTsui/img/master/SpringBean2.png)
+
 ### 换`xml`的方式来实例化`Bean`
 
 添加`bean.xml`文件：
