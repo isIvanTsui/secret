@@ -34,7 +34,7 @@
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="ehcache.xsd">
     <!-- 磁盘缓存位置 -->
-    <diskStore path="d:\data"/>
+    <diskStore path="\\CUIYINGFAN\share\ehcache"/>
     <!-- 默认缓存 -->
     <defaultCache
             maxEntriesLocalHeap="10000"
@@ -46,7 +46,6 @@
             memoryStoreEvictionPolicy="LRU">
         <persistence strategy="localTempSwap"/>
     </defaultCache>
-
     <!-- cache 可以设置多个，例如localCache、UserCache和HelloWorldCache -->
     <cache name="localCache"
            eternal="true"
@@ -64,7 +63,10 @@
            timeToIdleSeconds="10"
            timeToLiveSeconds="10"
            overflowToDisk="false"
-           memoryStoreEvictionPolicy="LRU"/>
+           memoryStoreEvictionPolicy="LRU">
+        <!--开启可搜索-->
+        <searchable/>
+    </cache>
 
     <!-- hello world缓存 -->
     <cache name="HelloWorldCache"
@@ -154,6 +156,19 @@ public class CacheController {
     public List getUser() {
         //获取第一个User
         List list = cacheManager.getCache("UserCache").get("user0", List.class);
+        //获取SpringCache
+        Cache cache = cacheManager.getCache("UserCache");
+        //获取SpringCache集成的Ehcache
+        Ehcache ehcache = (Ehcache) cache.getNativeCache();
+        ehcache.put(new Element("user199", "哈哈哈哈"));
+        Element value = ehcache.get("user199");
+        System.out.println(value);
+        //使用Ehcache进行模糊查询
+        Attribute<String> key = ehcache.getSearchAttribute("key");
+        Query query = ehcache.createQuery();
+        query.addCriteria(key.ilike("*users*"));
+        Results results = query.execute();
+        List<Result> resultList = results.all();
         return list;
     }
 
