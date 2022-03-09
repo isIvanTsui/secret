@@ -166,6 +166,8 @@ public class CacheController {
         //使用Ehcache进行模糊查询
         Attribute<String> key = ehcache.getSearchAttribute("key");
         Query query = ehcache.createQuery();
+        query.includeKeys(); //查询结果中包含Key
+        query.includeValues(); //查询结果中包含Value
         query.addCriteria(key.ilike("*users*"));
         Results results = query.execute();
         List<Result> resultList = results.all();
