@@ -188,6 +188,18 @@ public class CacheController {
 }
 ```
 
+## 启动类上添加`@EnableCaching`注解
+
+```java
+@SpringBootApplication
+@EnableCaching
+public class McdexNetApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(McdexNetApplication.class, args);
+    }
+}
+```
+
 ## `Spring`提供的注解
 
 | Cache              | 缓存接口，定义缓存操作。实现有：EhCacheCache、RedisCache等等 |
@@ -197,3 +209,39 @@ public class CacheController {
 | **@CacheEvict**    | **清空缓存**                                                 |
 | **@CachePut**      | **保证方法被调用，又希望结果被缓存**                         |
 | **@EnableCaching** | **开启基于注解的缓存**                                       |
+
+## SpringCache集成了多个第三方缓存
+
+1. 自定义`CacheManager`接口实现的第三方缓存`Bean`
+
+   ```java
+   /**
+    * ehcache配置
+    *
+    * @author cuiyingfan
+    * @date 2022/03/15
+    */
+   @Configuration
+   public class EhcacheConfig {
+   
+       @Bean("ehCacheCacheManager")
+       public EhCacheCacheManager getEhCacheCacheManager() throws IOException {
+           EhCacheCacheManager ehCacheCacheManager = new EhCacheCacheManager(CacheManager.create(new ClassPathResource("ehcache.xml").getInputStream()));
+           return ehCacheCacheManager;
+       }
+   }
+   ```
+
+2. `@Cacheable`注解里配置`cacheManager`属性来切换不同的`CacheManage`即可切换不同的第三方缓存
+
+   ```java
+   @Cacheable(cacheNames = "CPR", cacheManager = "ehCacheCacheManager")
+   public List<DrugClas> getDrugClas() {
+       String key = "drugclas";
+       return (List<DrugClas>) CacheService.get(key, CacheService.CacheTypeEnum.NoFailure, () -> {
+           return drugClasService.list();
+       });
+   }
+   ```
+
+   
