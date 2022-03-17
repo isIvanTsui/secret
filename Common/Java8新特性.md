@@ -184,6 +184,12 @@ sorted 方法用于对流进行排序。以下代码片段使用 sorted 方法�
 
 ```java
 Random random = new Random(); random.ints().limit(10).sorted().forEach(System.out::println);
+User tom1 = new User(1L, "tom", 18);
+        User tom2 = new User(3L, "Bob", 28);
+        User tom3 = new User(2L, "Mary", 17);
+        User tom4 = new User(4L, "Anmi", 22);
+        List<User> list = Arrays.asList(tom1, tom2, tom3, tom4);
+        List<User> resutl = list.stream().sorted(Comparator.comparingLong(User::getId).thenComparing(User::getAge).reversed()).collect(Collectors.toList());
 ```
 
 ------
@@ -211,6 +217,18 @@ List<String>strings = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
 List<String> filtered = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.toList()); 
 System.out.println("筛选列表: " + filtered); 
 String mergedString = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.joining(", ")); System.out.println("合并字符串: " + mergedString);
+```
+
+`Collectors.toMap`、`Collectors.groupingBy`
+
+```java
+User tom1 = new User(1L, "tom", 18);
+User tom2 = new User(3L, "Bob", 28);
+User tom3 = new User(2L, "Mary", 17);
+User tom4 = new User(4L, "Anmi", 22);
+List<User> list = Arrays.asList(tom1, tom2, tom3, tom4);
+Map<Long, User> map = list.stream().collect(Collectors.toMap(a -> a.getId(), b -> b));
+Map<Long, List<User>> collect = list.stream().collect(Collectors.groupingBy(User::getId));
 ```
 
 ------

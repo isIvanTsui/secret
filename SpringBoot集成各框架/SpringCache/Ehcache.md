@@ -235,13 +235,28 @@ public class McdexNetApplication {
 2. `@Cacheable`注解里配置`cacheManager`属性来切换不同的`CacheManage`即可切换不同的第三方缓存
 
    ```java
-   @Cacheable(cacheNames = "CPR", cacheManager = "ehCacheCacheManager")
+   @Cacheable(cacheNames = "CPR", cacheManager = "ehCacheCacheManager", key = "drugclas")
    public List<DrugClas> getDrugClas() {
-       String key = "drugclas";
-       return (List<DrugClas>) CacheService.get(key, CacheService.CacheTypeEnum.NoFailure, () -> {
-           return drugClasService.list();
-       });
+       return drugClasService.list();
    }
    ```
-
    
+
+
+
+## 坑
+
+<span style="color:red">**@Cacheable注解中：** </span>
+
+<span style="color:red">**一个方法A调同一个类里的另一个有缓存注解的方法B，这样是不走缓存的。**</span>
+
+<span style="color:red">**例如在同一个service里面两个方法的调用，缓存是不生效的；**</span>
+
+> 这里涉及到的是SpringAOP，Spring的所有注解都是基于SpringAOP动态代理实现的，
+
+解决方案：
+
+1.不使用注解的方式，直接取 Ehcache 的 CacheManger 对象，把需要缓存的数据放到里面，类似于使用 Map，缓存的逻辑自己控制；或者可以使用redis的缓存方式去添加缓存；
+
+2.把方法A和方法B放到两个不同的类里面，例如：如果两个方法都在同一个service接口里，把方法B放到另一个service里面，这样在A方法里调B方法，就可以使用B方法的缓存。
+
