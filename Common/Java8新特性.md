@@ -154,6 +154,13 @@ List<Integer> numbers = Arrays.asList(3, 2, 2, 3, 7, 3, 5); // 获取对应的�
 List<Integer> squaresList = numbers.stream().map( i -> i*i).distinct().collect(Collectors.toList());
 ```
 
+想把`List<User> list` 转为`List<String> names`
+
+```java
+List<User> list = new ArrayList();
+List<String> names = list.stream().map(User::getName).collect(Collectors.toList());
+```
+
 ------
 
 ### filter

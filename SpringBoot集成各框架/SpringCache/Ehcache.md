@@ -242,6 +242,30 @@ public class McdexNetApplication {
    ```
    
 
+## API的方式添加缓存
+
+```java
+@SpringBootTest
+public class Main {
+    @Resource
+    private EhCacheCacheManager ehCacheCacheManager;
+
+    @Test
+    public void byApi() {
+        CacheManager ehCachemanager = ehCacheCacheManager.getCacheManager();
+        //添加缓存
+        ehCachemanager.addCache("hhh");
+        //获取缓存
+        Cache cache = ehCachemanager.getCache("hhh");
+        //修改缓存设置
+        CacheConfiguration config = cache.getCacheConfiguration();
+        config.setTimeToIdleSeconds(60);
+        config.setTimeToLiveSeconds(120);
+        System.out.println("");
+    }
+}
+```
+
 
 
 ## 坑
