@@ -106,20 +106,59 @@
 
    
 
-   
 
-   
+## Logstash
 
-   
+1. 下载：
 
-   
+   https://www.elastic.co/cn/downloads/logstash
 
-   
+   历史版本下载：https://www.elastic.co/downloads/past-releases#logstash
 
-   
+2. 安装
 
-   
+   解压即可（尽量将ElasticSearch相关工具放在统一目录下）
 
+   ![image-20220323100832204](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20220323100832204.png)
+
+3. 启动
+
+   - `config`文件夹下新建`logstash.conf`文件，并编写如下类容：
+
+     ```
+     input {
+      tcp {
+      mode => "server"
+      host => "127.0.0.1"
+      port => 4560
+      codec => json_lines
+      }
+     }
+     output {
+       elasticsearch {
+         hosts => "127.0.0.1:9200"
+         index => "springboot-logstash-%{+YYYY.MM.dd}"
+       }
+       stdout{  
+           codec=>rubydebug  
+       }
+     }
+     ```
+
+     ![image-20220323132427691](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20220323132427691.png)
+   
+   - 执行`logstash -e "input { stdin { } } output { elasticsearch { hosts => ['127.0.0.1:9200'] } }"`命令，查看索引是否建立成功：
+   
+     ![img](https://raw.githubusercontent.com/isIvanTsui/img/master/l)
+   
+   - 在`bin`目录下打开`cmd`执行`logstash -f ../config/logstash.conf`命令
+   
+     ![image-20220323101700388](https://raw.githubusercontent.com/isIvanTsui/img/master/image-20220323101700388.png)
+   
+   
+   
+   
+   
    
    
    
