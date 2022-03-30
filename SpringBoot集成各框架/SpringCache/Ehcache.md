@@ -188,6 +188,18 @@ public class CacheController {
 }
 ```
 
+## 启动类上添加`@EnableCaching`注解
+
+```java
+@SpringBootApplication
+@EnableCaching
+public class McdexNetApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(McdexNetApplication.class, args);
+    }
+}
+```
+
 ## `Spring`提供的注解
 
 | Cache              | 缓存接口，定义缓存操作。实现有：EhCacheCache、RedisCache等等 |
@@ -197,3 +209,78 @@ public class CacheController {
 | **@CacheEvict**    | **清空缓存**                                                 |
 | **@CachePut**      | **保证方法被调用，又希望结果被缓存**                         |
 | **@EnableCaching** | **开启基于注解的缓存**                                       |
+
+## SpringCache集成了多个第三方缓存
+
+1. 自定义`CacheManager`接口实现的第三方缓存`Bean`
+
+   ```java
+   /**
+    * ehcache配置
+    *
+    * @author cuiyingfan
+    * @date 2022/03/15
+    */
+   @Configuration
+   public class EhcacheConfig {
+   
+       @Bean("ehCacheCacheManager")
+       public EhCacheCacheManager getEhCacheCacheManager() throws IOException {
+           EhCacheCacheManager ehCacheCacheManager = new EhCacheCacheManager(CacheManager.create(new ClassPathResource("ehcache.xml").getInputStream()));
+           return ehCacheCacheManager;
+       }
+   }
+   ```
+
+2. `@Cacheable`注解里配置`cacheManager`属性来切换不同的`CacheManage`即可切换不同的第三方缓存
+
+   ```java
+   @Cacheable(cacheNames = "CPR", cacheManager = "ehCacheCacheManager", key = "drugclas")
+   public List<DrugClas> getDrugClas() {
+       return drugClasService.list();
+   }
+   ```
+   
+
+## API的方式添加缓存
+
+```java
+@SpringBootTest
+public class Main {
+    @Resource
+    private EhCacheCacheManager ehCacheCacheManager;
+
+    @Test
+    public void byApi() {
+        CacheManager ehCachemanager = ehCacheCacheManager.getCacheManager();
+        //添加缓存
+        ehCachemanager.addCache("hhh");
+        //获取缓存
+        Cache cache = ehCachemanager.getCache("hhh");
+        //修改缓存设置
+        CacheConfiguration config = cache.getCacheConfiguration();
+        config.setTimeToIdleSeconds(60);
+        config.setTimeToLiveSeconds(120);
+        System.out.println("");
+    }
+}
+```
+
+
+
+## 坑
+
+<span style="color:red">**@Cacheable注解中：** </span>
+
+<span style="color:red">**一个方法A调同一个类里的另一个有缓存注解的方法B，这样是不走缓存的。**</span>
+
+<span style="color:red">**例如在同一个service里面两个方法的调用，缓存是不生效的；**</span>
+
+> 这里涉及到的是SpringAOP，Spring的所有注解都是基于SpringAOP动态代理实现的，
+
+解决方案：
+
+1.不使用注解的方式，直接取 Ehcache 的 CacheManger 对象，把需要缓存的数据放到里面，类似于使用 Map，缓存的逻辑自己控制；或者可以使用redis的缓存方式去添加缓存；
+
+2.把方法A和方法B放到两个不同的类里面，例如：如果两个方法都在同一个service接口里，把方法B放到另一个service里面，这样在A方法里调B方法，就可以使用B方法的缓存。
+
